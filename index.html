@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.11.0/firebase.js"></script>
+    <title>Train Scheduler</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+    <link href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" rel="stylesheet">
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="jumbotron text-center">
+            <h1>Train Scheduler</h1>
+        </div>
+        <!-- Train schedule table -->
+        <div class="card mb-3">
+            <div class="card-header bg-primary text-light lead">
+                Current Train Schedule
+            </div>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th class = "text-center" scope="col-1"><i class="fas fa-trash-alt"></i></th>
+                        <th scope="col">Train Name</th>
+                        <th scope="col">Destination</th>
+                        <th class="text-center" scope="col">Frequency(min)</th>
+                        <th class="text-center" scope="col">Next Arrival</th>
+                        <th class="text-center" scope="col">Minutes Away</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- here where all train information goes -->
+                </tbody>
+            </table>
+        </div>
+
+        <!-- train input form -->
+        <div class="card mb-3">
+            <div class="card-header bg-primary text-light lead">
+                Add Train
+            </div>
+            <form class="px-3">
+                <div class="form-group">
+                    <label class="mt-3" for="trainName">Train Name</label>
+                    <input id="trainName" type="text" class="form-control" placeholder="Enter train name">
+                </div>
+                <div class="form-group">
+                    <label for="trainDestination">Destination</label>
+                    <input id="trainDestination" type="text" class="form-control" placeholder="Destination: City, State">
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="trainTime">First Train Time</label>
+                        <input id="trainTime" type="time" class="form-control" placeholder="Enter initial time">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="trainFrequency">Frequency</label>
+                        <input id="trainFrequency" type="number" class="form-control" placeholder="Enter time frequency (min)">
+                    </div>
+                </div>
+                <button id="submit" class="mb-3 mx-3 btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Bootstrap Modal -->
+
+    <div id="myModal" class="modal fade">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Wrong Time Input</h5>
+
+
+                </div>
+                <div class="modal-body">
+                    <p>Input correct time. Time format must be hh:mm AM or PM.</p>
+                </div>
+                <div class="modal-footer">
+                    <button id="modalOK" type="button" class="btn btn-primary">OK</button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script src="./js/logic.js"></script>
+</body>
+
+</html>
